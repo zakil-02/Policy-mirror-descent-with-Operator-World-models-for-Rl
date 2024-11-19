@@ -82,7 +82,14 @@ __Goal__ : optimise sum of rewards, through repeated interaction
   * Receives Action $A_t$
   * Emits observation $X_{t+1}$ (and reward $R_{t+1}$)
 
+---
+# The Policy
 
+* A __policy__ defines the agent's behaviour
+* It is a map from agent state to action
+* The policy can be:
+  * __Deterministic__: $A = \pi(X)$
+  * __Stochastic__: $\pi(A|X) = \mathbb{P}(A|X)$
 
 ---
 
@@ -97,20 +104,10 @@ $$J(\pol) = \EE\left[\sum_{t=0}^{\infty} \gamma^t r(X_t,A_t)\right]$$
 
 ---
 
-
 # The Reward Hypothesis
 
 Reinforcement Learning is based on the __Reward Hypothesis__:
 _Any goal can be formalized as the outcome of maximizing a cumulative reward_
-
----
-# The Policy
-
-* A __policy__ defines the agent's behaviour
-* It is a map from agent state to action
-* The policy can be:
-  * __Deterministic__: $A = \pi(X)$
-  * __Stochastic__: $\pi(A|X) = p(A|X)$
 
 ---
 # Value Function and Action values
