@@ -1,11 +1,17 @@
 ---
 marp: true
-class: invert
 math: mathjax
-theme: rose-pine
+theme: default
+class: 
+ - invert
 ---
 <style>
 img[alt~="center"] {
+  display: block;
+  margin: 0 auto;
+  border-radius: 20px;
+}
+video {
   display: block;
   margin: 0 auto;
 }
@@ -37,36 +43,28 @@ $$
 # Operator World Models for Reinforcement Learning
 P. Novelli, M.Pratticò, M.Pontil, and C. Ciliberto
 
-
-<!-- ---
-# What is Reinforcement Learning?
-
-* A class of algorithms inspired by how humans and people learns to achieve goals
-* People and animals learn by __interacting with our environment__
-![](figs/video.mp4) -->
-
 ---
 
 # What is Reinforcement Learning?
 
-* A class of algorithms inspired by how people and animals learns to achieve goals
-* People and animals learn by __interacting with the environment__
-* This differs from other types of learning
-  * It is __active__ rather then passive
-  * Interactions are often __sequential__ - future interactions can depend on earlier ones
-* We are __goal-directed__
-* We learn optimising some __reward signal__
+- A class of algorithms inspired by how people and animals learns to achieve goals
+- People and animals learn by __interacting with the environment__
+- This differs from other types of learning
+  - It is __active__ rather then passive
+  - Interactions are often __sequential__ - future interactions can depend on earlier ones
+- We are __goal-directed__
+- We learn optimising some __reward signal__
 ---
 # What is Reinforcement Learning?
 
-![center](figs\ml_classification.png)
+![center](figs/ml_classification.png)
 
-* Reinforcement Learning doesn't work with a static dataset and it gets data from the __experience__
+- Reinforcement Learning doesn't work with a static dataset and it gets data from the __experience__
 
 ---
 # The interaction Loop
 
-![center](figs\aget_environment_interaction_loop.png)
+![center](figs/agent_environment_interaction_loop.png)
 
 __Goal__ : optimise sum of rewards, through repeated interaction
 
@@ -74,33 +72,33 @@ __Goal__ : optimise sum of rewards, through repeated interaction
 
 # Formalizing the RL problem
 
-![w:600 center](figs\aget_environment_interaction_loop.png)
-* At each step $t$ the agent:
-  * Receives the Observation $X_t$ (and reward $R_t$)
-  * Executes an action $A_t$
-* The environment:
-  * Receives Action $A_t$
-  * Emits observation $X_{t+1}$ (and reward $R_{t+1}$)
+![w:600 center](figs/agent_environment_interaction_loop.png)
+- At each step $t$ the agent:
+  - Receives the Observation $X_t$ (and reward $R_t$)
+  - Executes an action $A_t$
+- The environment:
+  - Receives Action $A_t$
+  - Emits observation $X_{t+1}$ (and reward $R_{t+1}$)
 
 ---
 # The Policy
 
-* A __policy__ defines the agent's behaviour
-* It is a map from agent state to action
-* The policy can be:
-  * __Deterministic__: $A = \pi(X)$
-  * __Stochastic__: $\pi(A|X) = \mathbb{P}(A|X)$
+- A __policy__ defines the agent's behaviour
+- It is a map from agent state to action
+- The policy can be:
+  - __Deterministic__: $A = \pi(X)$
+  - __Stochastic__: $\pi(A|X) = \mathbb{P}(A|X)$
 
 ---
 
 # The Reward 
 
-* A __reward__ $R_t$ is a scalar feedback signal
-* It indicates how well the agent is doing at a step $t$ - defines a goal
-* The agent's job is to maximize comulative reward
+- A __reward__ $R_t$ is a scalar feedback signal
+- It indicates how well the agent is doing at a step $t$ - defines a goal
+- The agent's job is to maximize comulative reward
 $$J(\pol) = \EE\left[\sum_{t=0}^{\infty} \gamma^t r(X_t,A_t)\right]$$
-* We introduced a __discount factor__ $\gamma \in (0,1)$
-    * Trades off: importance of immediate vs long-term rewards
+- We introduced a __discount factor__ $\gamma \in (0,1)$
+    - Trades off: importance of immediate vs long-term rewards
 
 ---
 
@@ -115,28 +113,28 @@ _Any goal can be formalized as the outcome of maximizing a cumulative reward_
 
 # Value Function
 
-* The value function is defined as the expected return
+- The value function is defined as the expected return
 $$ V_\pi(x) = \EE\left[\sum_{t=0}^{\infty} \gamma^t r(X_t,A_t) \Big\vert X_0 = x \right] $$
 
-* The value depends on a policy
-* Can be used to evaluate the desiderability of states
-* Can be used to select between actions
+- The value depends on a policy
+- Can be used to evaluate the desiderability of states
+- Can be used to select between actions
 
 ---
 
 # Action-Value Function
 
-* Similarly, we can define the action-value function (Q-function) as 
+- Similarly, we can define the action-value function (Q-function) as 
 $$ Q_\pi(x,a) = \EE\left[\sum_{t=0}^{\infty} \gamma^t r(X_t,A_t) \Big\vert X_0 = x, A_0 = a \right] $$
-* This function is strongly related to the value function, and:
+- This function is strongly related to the value function, and:
 $$ V_\pi(x) = \EE\left[Q_\pi(X_t, A_t) \Big\vert X_t = x, A_t \thicksim  \pi(X_t) \right] $$
 
 ---
 # Markov Decision Process 
 
-* Almost all RL problems can be framed as __Markov Decision Processes__
-* All states in MDP has __Markov__ property $\rightarrow$ the future and the past are conditionally independent given the present
-  * The future only depends on the current state, not on the history
+- Almost all RL problems can be framed as __Markov Decision Processes__
+- All states in MDP has __Markov__ property $\rightarrow$ the future and the past are conditionally independent given the present
+  - The future only depends on the current state, not on the history
 
 ![w:800 center](figs/block_scheme.png)
 
@@ -153,6 +151,10 @@ where
 - $X_{t + 1} \sim \tau(\cdot | X_{t}, A_{t})$ transition kernel.
 - $r:\spX \times \spA \to \R$ reward function.
 - $\gamma \in (0, 1)$ discount factor.
+---
+# The tutorial will resume shortly 
+
+<video src="figs/video.mp4" style="width: 70%" autoplay controls></video>
 
 ---
 # Reinforcement learning
@@ -210,4 +212,3 @@ with probability not less than $1 - 4e^{-\delta}$ and $\alpha < 1$. Here and $\p
 ---
 # Experimental results
 ## `https://github.com/CSML-IIT-UCL/powr`
-![](experimental_results.png)
