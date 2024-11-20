@@ -74,11 +74,11 @@ __Goal__ : optimise sum of rewards, through repeated interaction
 
 ![w:600 center](figs/agent_environment_interaction_loop.png)
 - At each step $t$ the agent:
-  - Receives the Observation $X_t$ (and reward $R_t$)
+  - Observes the state $X_t$ (and reward $R_t$)
   - Executes an action $A_t$
 - The environment:
   - Receives Action $A_t$
-  - Emits observation $X_{t+1}$ (and reward $R_{t+1}$)
+  - Emits a state $X_{t+1}$ (and reward $R_{t+1}$)
 
 ---
 # The Policy
