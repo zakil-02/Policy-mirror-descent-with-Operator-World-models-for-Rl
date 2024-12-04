@@ -63,7 +63,7 @@ def parse_args():
 
 def parse_env(env_name, parallel_envs, sigma):
     if env_name == "Taxi-v3":
-        env = gym.make_vec("Taxi-v3",  num_envs=parallel_envs, vectorization_mode="sync")
+        env = gym.make_vec("Taxi-v3",  num_envs=parallel_envs, vectorization_mode="sync", render_mode="rgb_array")
         kernel = dirac_kernel
 
     elif env_name == "FrozenLake-v1":
@@ -78,30 +78,28 @@ def parse_env(env_name, parallel_envs, sigma):
         kernel = dirac_kernel
 
     elif env_name == "LunarLander-v2":
-        env = gym.make("LunarLander-v2", render_mode="rgb_array")
+        env = gym.make_vec("LunarLander-v2", num_envs=parallel_envs, vectorization_mode="sync", render_mode="rgb_array")
         sigma_ll = [sigma for _ in range(6)]
         sigma_ll += [0.0001, 0.0001]
         kernel = gaussian_kernel_diag(sigma_ll)
 
     elif env_name == "MountainCar-v0":
 
-        env = gym.make_vec("MountainCar-v0", num_envs=parallel_envs, vectorization_mode="sync")
+        env = gym.make_vec("MountainCar-v0", num_envs=parallel_envs, vectorization_mode="sync", render_mode="rgb_array")
         sigma_mc = [0.1, 0.01]
         kernel = gaussian_kernel_diag(sigma_mc)
 
     elif env_name == "CartPole-v1":
-        env = gym.make("CartPole-v1", render_mode="rgb_array")
+        env = gym.make_vec("CartPole-v1", num_envs=parallel_envs, vectorization_mode="sync", render_mode="rgb_array")
         kernel = gaussian_kernel(sigma)
 
     elif env_name == "Pendulum-v1":
-        env = gym.make("Pendulum-v1", g=9.81, render_mode="rgb_array")
+        env = gym.make_vec("Pendulum-v1", g=9.81, num_envs=parallel_envs, vectorization_mode="sync", render_mode="rgb_array")
         kernel = gaussian_kernel(sigma)
 
     else:
         raise ValueError(f"Unknown environment: {args.env}")
 
-    # if env_name != "MountainCar-v0":
-    #     raise NotImplementedError(f"Parallel env not implemented yet: {args.env}")
     return env, kernel
 
 

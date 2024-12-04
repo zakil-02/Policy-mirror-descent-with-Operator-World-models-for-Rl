@@ -339,9 +339,12 @@ class MDPManager:
                 old_terminated = terminations
 
                 if plot:
-                    img = self.eval_env.render()[0]
-
-                    # write the action on the right left corner of the image (in green) font 16 and thickness 2
+                    img =self.eval_env.envs[0].render()
+    
+                    # Ensure the image is a NumPy array
+                    if not isinstance(img, np.ndarray):
+                        img = np.array(img)
+                    # write the action on the right left corner of the image (in green) font 1 and thickness 2
                     img = cv2.putText(
                         img,
                         f"Action: {actions[0]} - Pi: {pi[0]}",
