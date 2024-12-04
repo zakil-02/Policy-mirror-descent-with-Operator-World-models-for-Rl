@@ -73,7 +73,7 @@ def parse_env(env_name, parallel_envs, sigma):
             map_name="4x4",
             is_slippery=False,
             render_mode="rgb_array",
-            wrappers=[RewardRangeWrapper],
+            # wrappers=[RewardRangeWrapper],
         )
         kernel = dirac_kernel
 

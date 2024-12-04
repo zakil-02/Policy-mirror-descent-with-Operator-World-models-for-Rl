@@ -1,6 +1,6 @@
 # POWR: Operator World Models for Reinforcement Learning
 
-[Paper](https://arxiv.org/pdf/2406.19861) / [Website]()
+[Paper](https://arxiv.org/pdf/2406.19861) / [Website](https://csml-iit-ucl.github.io/powr/)
 
 ##### [Pietro Novelli](https://scholar.google.com/citations?user=bXlwJucAAAAJ&hl=en), [Marco Pratticò](https://scholar.google.com/citations?user=gC9M9AkAAAAJ&hl=en&oi=ao), [Massimiliano Pontil](https://scholar.google.com/citations?user=lcOacs8AAAAJ&hl=it) ,[Carlo Ciliberto](https://scholar.google.com/citations?user=XUcUAisAAAAJ&hl=it)
 
@@ -18,7 +18,7 @@ Our release is **under construction**, you can track its progress below:
 	- [x] Optimization
 	- [x] Model saving and loading
 	- [ ] Cleaning
-- [ ] Reproducing Results Scripts
+- [ ] Reproducing paper results scripts
 - [ ] Hyperparameters for each env
 - [ ] Trained models
 - [ ] Complete the README
