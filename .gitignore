@@ -2,7 +2,8 @@
 __pycache__/
 *.py[cod]
 *$py.class
-
+myenv/*
+powr-experiments.ipynb
 # C extensions
 *.so
 
